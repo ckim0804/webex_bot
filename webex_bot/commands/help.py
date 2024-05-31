@@ -38,18 +38,18 @@ class HelpCommand(Command):
         :param activity: activity object
         :return:
         """
-        heading = TextBlock(self.bot_name, weight=FontWeight.BOLDER, wrap=True, size=FontSize.LARGE)
-        subtitle = TextBlock(self.bot_help_subtitle, wrap=True, size=FontSize.SMALL, color=Colors.LIGHT)
+        # heading = TextBlock(self.bot_name, weight=FontWeight.BOLDER, wrap=True, size=FontSize.LARGE)
+        # subtitle = TextBlock(self.bot_help_subtitle, wrap=True, size=FontSize.SMALL, color=Colors.LIGHT)
 
-        image = Image(
-            url=self.bot_help_image,
-            size=self.bot_help_image_size)
+        # image = Image(
+        #     url=self.bot_help_image,
+        #     size=self.bot_help_image_size)
 
-        header_column = Column(items=[heading, subtitle], width=2)
-        header_image_column = Column(
-            items=[image],
-            width=1,
-        )
+        # header_column = Column(items=[heading, subtitle], width=2)
+        # header_image_column = Column(
+        #     items=[image],
+        #     width=1,
+        # )
 
         log.info(f"build help card activity: {activity}")
         thread_parent_id = None
@@ -58,8 +58,10 @@ class HelpCommand(Command):
 
         actions, hint_texts = self.build_actions_and_hints(thread_parent_id)
 
+        image = Image(url="https://i.imgur.com/14pWijX.jpeg")
         card = AdaptiveCard(
-            body=[ColumnSet(columns=[header_column, header_image_column]),
+            body=[image
+                  # ColumnSet(columns=[header_column, header_image_column]),
                   # ColumnSet(columns=[Column(items=[subtitle])]),
                   # FactSet(facts=hint_texts),
                   ],
