@@ -322,7 +322,7 @@ class WebexBot(WebexWebsocketClient):
             if not reply.parentId and conv_target_id and self.threads:
                 reply.parentId = conv_target_id
             reply = reply.as_dict()
-            print(reply)
+            log.debug(reply)
             self.teams.messages.create(**reply)
             reply = "ok"
         # Support returning a list of Responses
